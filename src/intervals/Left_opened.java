@@ -50,8 +50,12 @@ public class Left_opened extends Interval{
 
 	@Override
 	public boolean intersectsWith(Interval interval) {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.checkLeft(interval)) {
+			return interval.getOpening() == Opening.RIGHT_OPENED || interval.getOpening() == Opening.UNOPENED;
+        } else {
+            return !this.checkRight(interval) && (this.includes(interval.getPoint().getMinimum()) ||
+            		this.includes(interval.getPoint().getMaximum()));
+        }
 	}
 
 }

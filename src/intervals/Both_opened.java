@@ -51,8 +51,8 @@ public class Both_opened extends Interval{
 
 	@Override
 	public boolean intersectsWith(Interval interval) {
-		// TODO Auto-generated method stub
-		return false;
+		return !this.checkLeft(interval) && !this.checkRight(interval) && (this.includes(interval.getPoint().getMinimum())
+				|| this.includes(interval.getPoint().getMaximum()));
 	}
 
 }

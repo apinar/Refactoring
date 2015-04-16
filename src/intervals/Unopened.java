@@ -50,8 +50,13 @@ public class Unopened extends Interval{
 
 	@Override
 	public boolean intersectsWith(Interval interval) {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.checkRight(interval)) {
+            return interval.getOpening() == Opening.LEFT_OPENED || interval.getOpening() == Opening.UNOPENED;
+        }
+        if (this.checkLeft(interval)) {
+            return interval.getOpening() == Opening.RIGHT_OPENED || interval.getOpening() == Opening.UNOPENED;
+        }
+        return this.includes(interval.getPoint().getMinimum()) || this.includes(interval.getPoint().getMaximum());
 	}
 
 }

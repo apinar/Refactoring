@@ -26,51 +26,6 @@ public abstract class Interval {
 	
 	public abstract boolean intersectsWith(Interval interval); 
 	
-	/*{
-		//return this.includes(interval.getPoint().getMaximum()) && interval.includes(this.getPoint().getMinimum());
-		System.out.println(this.getPoint().getMinimum());
-		System.out.println(this.getPoint().getMaximum());
-		System.out.println(interval.getPoint().getMinimum());
-		System.out.println(interval.getPoint().getMaximum());
-		System.out.println(interval.includes(this.getPoint().getMinimum()));
-		System.out.println(interval.includes(this.getPoint().getMaximum()));
-		System.out.println("------------");
-		
-		return interval.includes(this.getPoint().getMinimum()) || interval.includes(this.getPoint().getMaximum()) ||
-				this.includes(interval.getPoint().getMinimum()) || this.includes(interval.getPoint().getMaximum()); 
-		
-		/*if (getPoint().getMinimum() == interval.getPoint().getMaximum()) {
-			switch (getOpening()) {
-			case BOTH_OPENED:
-			case LEFT_OPENED:
-				return false;
-			case RIGHT_OPENED:
-			case UNOPENED:
-				return interval.getOpening() == Opening.LEFT_OPENED ||
-						interval.getOpening() == Opening.UNOPENED;
-			default:
-				assert false;
-				return false;
-			}
-		}
-		if (getPoint().getMaximum() == interval.getPoint().getMinimum()) {
-			switch (getOpening()) {
-			case BOTH_OPENED:
-			case RIGHT_OPENED:
-				return false;
-			case LEFT_OPENED:
-			case UNOPENED:
-				return interval.getOpening() == Opening.RIGHT_OPENED ||
-						interval.getOpening() == Opening.UNOPENED;
-			default:
-				assert false;
-				return false;
-			}
-		}
-		return this.includes(interval.getPoint().getMinimum())
-				|| this.includes(interval.getPoint().getMaximum());
-				
-	}*/
 
 	@Override
 	public String toString() {
@@ -100,4 +55,13 @@ public abstract class Interval {
 		this.point = point;
 	}
  
+	public boolean checkLeft(Interval interval){
+		return this.getPoint().getMaximum() == interval.getPoint().getMinimum();
+	}
+	
+	public boolean checkRight(Interval interval){
+		return this.getPoint().getMinimum() == interval.getPoint().getMaximum();
+	}
+	
+	
 }
