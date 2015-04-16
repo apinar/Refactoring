@@ -19,7 +19,8 @@ public abstract class Interval {
 	public abstract boolean includes(double value) ;
 	
 
-	public boolean includes(Interval interval) {
+	public abstract boolean includes(Interval interval) ; 
+	/*{
 		boolean minimumIncluded = this.includes(interval.getMinimum());
 		boolean maximumIncluded = this.includes(interval.getMaximum());
 		switch (opening) {
@@ -98,7 +99,7 @@ public abstract class Interval {
 			assert false;
 			return false;
 		}
-	}
+	}*/
 
 	public boolean intersectsWith(Interval interval) {
 		if (getMinimum() == interval.getMaximum()) {
