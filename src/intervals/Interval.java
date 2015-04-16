@@ -2,18 +2,21 @@ package intervals;
 
 public abstract class Interval {
 
-	private double minimum;
-	private double maximum;
+	//private double minimum;
+	//private double maximum;
 	private Opening opening;
+	private Point point;
 
 	public Interval(double minimum, double maximum, Opening opening) {
-		this.setMinimum(minimum);
-		this.setMaximum(maximum);
+		this.setPoint(new Point(minimum,maximum));
+		//this.setMinimum(minimum);
+		//this.setMaximum(maximum);
 		this.setOpening(opening);
 	}
 
 	public double midPoint() {
-		return (getMaximum() + getMinimum()) / 2;
+		return getPoint().midPoint();
+		//return (getMaximum() + getMinimum()) / 2;
 	}
 
 	public abstract boolean includes(double value) ;
@@ -23,7 +26,7 @@ public abstract class Interval {
 	
 
 	public boolean intersectsWith(Interval interval) {
-		if (getMinimum() == interval.getMaximum()) {
+		if (getPoint().getMinimum() == interval.getPoint().getMaximum()) {
 			switch (getOpening()) {
 			case BOTH_OPENED:
 			case LEFT_OPENED:
@@ -37,7 +40,7 @@ public abstract class Interval {
 				return false;
 			}
 		}
-		if (getMaximum() == interval.getMinimum()) {
+		if (getPoint().getMaximum() == interval.getPoint().getMinimum()) {
 			switch (getOpening()) {
 			case BOTH_OPENED:
 			case RIGHT_OPENED:
@@ -51,8 +54,8 @@ public abstract class Interval {
 				return false;
 			}
 		}
-		return this.includes(interval.getMinimum())
-				|| this.includes(interval.getMaximum());
+		return this.includes(interval.getPoint().getMinimum())
+				|| this.includes(interval.getPoint().getMaximum());
 	}
 
 	@Override
@@ -67,7 +70,7 @@ public abstract class Interval {
 		return false;
 	}
 
-	public double getMinimum() {
+	/*public double getMinimum() {
 		return minimum;
 	}
 
@@ -81,7 +84,7 @@ public abstract class Interval {
 
 	private void setMaximum(double maximum) {
 		this.maximum = maximum;
-	}
+	}*/
 
 	public Opening getOpening() {
 		return opening;
@@ -89,6 +92,14 @@ public abstract class Interval {
 
 	public void setOpening(Opening opening) {
 		this.opening = opening;
+	}
+
+	public Point getPoint() {
+		return point;
+	}
+
+	public void setPoint(Point point) {
+		this.point = point;
 	}
 
 }

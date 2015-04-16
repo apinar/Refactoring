@@ -8,25 +8,25 @@ public class Right_opened extends Interval{
 
 	@Override
 	public boolean includes(double value) {
-		return getMinimum() <= value && value < getMaximum();
+		return getPoint().getMinimum() <= value && value < getPoint().getMaximum();
 	}
 
 	@Override
 	public boolean includes(Interval interval) {
-		boolean minimumIncluded = this.includes(interval.getMinimum());
-		boolean maximumIncluded = this.includes(interval.getMaximum());
+		boolean minimumIncluded = this.includes(interval.getPoint().getMinimum());
+		boolean maximumIncluded = this.includes(interval.getPoint().getMaximum());
 		switch (interval.getOpening()) {
 		case BOTH_OPENED:
-			return (minimumIncluded || getMinimum() == interval.getMinimum())
-					&& (maximumIncluded || getMaximum() == interval.getMaximum());
+			return (minimumIncluded || getPoint().getMinimum() == interval.getPoint().getMinimum())
+					&& (maximumIncluded || getPoint().getMaximum() == interval.getPoint().getMaximum());
 		case LEFT_OPENED:
-			return (minimumIncluded || getMinimum() == interval.getMinimum())
+			return (minimumIncluded || getPoint().getMinimum() == interval.getPoint().getMinimum())
 					&& (maximumIncluded);
 		case RIGHT_OPENED:
-			return (minimumIncluded || getMinimum() == interval.getMinimum())
-					&& (maximumIncluded || getMaximum() == interval.getMaximum());
+			return (minimumIncluded || getPoint().getMinimum() == interval.getPoint().getMinimum())
+					&& (maximumIncluded || getPoint().getMaximum() == interval.getPoint().getMaximum());
 		case UNOPENED:
-			return (minimumIncluded || getMinimum() == interval.getMinimum())
+			return (minimumIncluded || getPoint().getMinimum() == interval.getPoint().getMinimum())
 					&& (maximumIncluded);
 		default:
 			assert false;
