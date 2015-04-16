@@ -8,7 +8,7 @@ public class Unopened extends Interval{
 
 	@Override
 	public boolean includes(double value) {
-		return minimum <= value && value <= maximum;
+		return getMinimum() <= value && value <= getMaximum();
 	}
 
 }
