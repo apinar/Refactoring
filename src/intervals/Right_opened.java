@@ -8,8 +8,7 @@ public class Right_opened extends Interval{
 
 	@Override
 	public boolean includes(double value) {
-		// TODO Auto-generated method stub
-		return false;
+		return minimum <= value && value < maximum;
 	}
 
 }
