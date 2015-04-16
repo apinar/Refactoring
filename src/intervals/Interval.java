@@ -17,12 +17,12 @@ public abstract class Interval {
 	public abstract boolean includes(double value) ;
 	
 
-	public abstract boolean includes(Interval interval) ; 
+	//public abstract boolean includes(Interval interval) ; 
 	
-	public abstract void includes(Both_opened interval);
-	public abstract void includes(Left_opened interval);
-	public abstract void includes(Right_opened interval);
-	public abstract void includes(Unopened interval);
+	public abstract boolean includes(Both_opened interval);
+	public abstract boolean includes(Left_opened interval);
+	public abstract boolean includes(Right_opened interval);
+	public abstract boolean includes(Unopened interval);
 	
 
 	public boolean intersectsWith(Interval interval) {
