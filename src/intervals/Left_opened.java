@@ -18,32 +18,28 @@ public class Left_opened extends Interval{
 
 	@Override
 	public boolean includes(Both_opened interval) {
-		boolean minimumIncluded = interval.includes(this.getPoint().getMinimum());
-		boolean maximumIncluded = interval.includes(this.getPoint().getMaximum());
+		maxMinIncluded(interval);
 		return (minimumIncluded || getPoint().getMinimum() == interval.getPoint().getMinimum())
 				&& (maximumIncluded);
 	}
 
 	@Override
 	public boolean includes(Left_opened interval) {
-		boolean minimumIncluded = interval.includes(this.getPoint().getMinimum());
-		boolean maximumIncluded = interval.includes(this.getPoint().getMaximum());
+		maxMinIncluded(interval);
 		return (minimumIncluded || getPoint().getMinimum() == interval.getPoint().getMinimum())
 				&& (maximumIncluded);
 	}
 
 	@Override
 	public boolean includes(Right_opened interval) {
-		boolean minimumIncluded = interval.includes(this.getPoint().getMinimum());
-		boolean maximumIncluded = interval.includes(this.getPoint().getMaximum());
+		maxMinIncluded(interval);
 		return (minimumIncluded)
 				&& (maximumIncluded && (maximumIncluded && getPoint().getMaximum() != interval.getPoint().getMaximum()));
 	}
 
 	@Override
 	public boolean includes(Unopened interval) {
-		boolean minimumIncluded = interval.includes(this.getPoint().getMinimum());
-		boolean maximumIncluded = interval.includes(this.getPoint().getMaximum());
+		maxMinIncluded(interval);
 		return (minimumIncluded)
 				&& (maximumIncluded);
 	}

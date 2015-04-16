@@ -4,6 +4,8 @@ public abstract class Interval {
 
 	private Opening opening;
 	private Point point;
+	protected boolean minimumIncluded;
+	protected boolean maximumIncluded;
 
 	public Interval(double minimum, double maximum, Opening opening) {
 		this.setPoint(new Point(minimum,maximum));
@@ -61,6 +63,11 @@ public abstract class Interval {
 	
 	public boolean checkRight(Interval interval){
 		return this.getPoint().getMinimum() == interval.getPoint().getMaximum();
+	}
+	
+	public void maxMinIncluded(Interval interval){
+		this.minimumIncluded = interval.includes(this.getPoint().getMinimum());
+		this.maximumIncluded = interval.includes(this.getPoint().getMaximum());
 	}
 	
 	
