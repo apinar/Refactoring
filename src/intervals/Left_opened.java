@@ -11,9 +11,10 @@ public class Left_opened extends Interval{
 		return getPoint().getMinimum() < value && value <= getPoint().getMaximum();
 	}
 
-	/*@Override
+	@Override
 	public boolean includes(Interval interval) {
-		boolean minimumIncluded = this.includes(interval.getPoint().getMinimum());
+		return interval.includes(this);
+	/*	boolean minimumIncluded = this.includes(interval.getPoint().getMinimum());
 		boolean maximumIncluded = this.includes(interval.getPoint().getMaximum());
 		switch (interval.getOpening()) {
 		case BOTH_OPENED:
@@ -31,8 +32,8 @@ public class Left_opened extends Interval{
 		default:
 			assert false;
 			return false;
-		}
-	}*/
+		}*/
+	}
 
 	@Override
 	public boolean includes(Both_opened interval) {

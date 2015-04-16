@@ -17,7 +17,7 @@ public abstract class Interval {
 	public abstract boolean includes(double value) ;
 	
 
-	//public abstract boolean includes(Interval interval) ; 
+	public abstract boolean includes(Interval interval) ; 
 	
 	public abstract boolean includes(Both_opened interval);
 	public abstract boolean includes(Left_opened interval);
