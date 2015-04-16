@@ -19,6 +19,11 @@ public abstract class Interval {
 
 	public abstract boolean includes(Interval interval) ; 
 	
+	public abstract void includes(Both_opened interval);
+	public abstract void includes(Left_opened interval);
+	public abstract void includes(Right_opened interval);
+	public abstract void includes(Unopened interval);
+	
 
 	public boolean intersectsWith(Interval interval) {
 		if (getPoint().getMinimum() == interval.getPoint().getMaximum()) {
