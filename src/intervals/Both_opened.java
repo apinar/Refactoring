@@ -6,4 +6,10 @@ public class Both_opened extends Interval{
 		super(minimum, maximum, opening);
 	}
 
+	@Override
+	public boolean includes(double value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
