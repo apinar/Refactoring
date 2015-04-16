@@ -2,7 +2,7 @@ package intervals;
 
 public abstract class Interval {
 
-	private Opening opening;
+	private Opening opening; 
 	private Point point;
 	protected boolean minimumIncluded;
 	protected boolean maximumIncluded;
