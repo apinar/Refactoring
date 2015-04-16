@@ -48,4 +48,10 @@ public class Left_opened extends Interval{
 				&& (maximumIncluded);
 	}
 
+	@Override
+	public boolean intersectsWith(Interval interval) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

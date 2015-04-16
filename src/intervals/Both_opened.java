@@ -49,4 +49,10 @@ public class Both_opened extends Interval{
 		return (minimumIncluded) && (maximumIncluded);
 	}
 
+	@Override
+	public boolean intersectsWith(Interval interval) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -24,9 +24,21 @@ public abstract class Interval {
 	public abstract boolean includes(Right_opened interval);
 	public abstract boolean includes(Unopened interval);
 	
-
-	public boolean intersectsWith(Interval interval) {
-		return false;
+	public abstract boolean intersectsWith(Interval interval); 
+	
+	/*{
+		//return this.includes(interval.getPoint().getMaximum()) && interval.includes(this.getPoint().getMinimum());
+		System.out.println(this.getPoint().getMinimum());
+		System.out.println(this.getPoint().getMaximum());
+		System.out.println(interval.getPoint().getMinimum());
+		System.out.println(interval.getPoint().getMaximum());
+		System.out.println(interval.includes(this.getPoint().getMinimum()));
+		System.out.println(interval.includes(this.getPoint().getMaximum()));
+		System.out.println("------------");
+		
+		return interval.includes(this.getPoint().getMinimum()) || interval.includes(this.getPoint().getMaximum()) ||
+				this.includes(interval.getPoint().getMinimum()) || this.includes(interval.getPoint().getMaximum()); 
+		
 		/*if (getPoint().getMinimum() == interval.getPoint().getMaximum()) {
 			switch (getOpening()) {
 			case BOTH_OPENED:
@@ -57,8 +69,8 @@ public abstract class Interval {
 		}
 		return this.includes(interval.getPoint().getMinimum())
 				|| this.includes(interval.getPoint().getMaximum());
-				*/
-	}
+				
+	}*/
 
 	@Override
 	public String toString() {

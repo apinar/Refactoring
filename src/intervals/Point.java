@@ -26,9 +26,5 @@ public class Point {
 		return (getMaximum() + getMinimum()) / 2;
 	}	
 	
-	public boolean intersectsWith(Point point){
-		return false;
-		
-	}
 
 }
