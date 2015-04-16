@@ -85,5 +85,5 @@ public abstract class Interval {
 	public void setPoint(Point point) {
 		this.point = point;
 	}
-
+ 
 }
